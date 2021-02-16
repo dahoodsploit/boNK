@@ -1,0 +1,27 @@
+local part = game.Players.LocalPlayer.Character.HumanoidRootPart
+local Debounce = false
+ 
+local function onPartTouched(otherPart)
+    if Debounce == false then
+        Debounce = true
+        local Character = game.Players.LocalPlayer.Character
+        local RootPart = Character.HumanoidRootPart
+        local IT = Instance.new
+
+        local Musika = IT("Sound", RootPart)
+        Musika.SoundId = "rbxassetid://5148302439"
+        Musika.Volume = 5
+        Musika.Playing = true
+        Musika.MaxDistance = math.huge
+        Musika.PlaybackSpeed = 1
+        Musika.EmitterSize = 45
+        Musika.TimePosition = 0
+        Musika:Play()
+        wait(1)
+        Musika:Stop()
+        Musika:Destroy()
+        Debounce = false
+    end
+end
+ 
+part.Touched:Connect(onPartTouched)
